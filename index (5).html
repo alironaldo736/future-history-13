@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future History - Indigenous Media Study</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    .sticky-nav {
+      transition: all 0.3s ease;
+    }
+    
+    .sticky-nav.scrolled {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #4338ca;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .section-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .testimonial-card {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 80px;
+      font-family: serif;
+      color: rgba(255, 255, 255, 0.1);
+      line-height: 1;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 40px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #4338ca;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 20px;
+      width: 2px;
+      height: calc(100% - 20px);
+      background-color: #e5e7eb;
+    }
+    
+    .timeline-item:last-child::after {
+      display: none;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .animate-spin {
+      animation: spin 1.5s linear infinite;
+    }
+    
+    .animation-delay-200 {
+      animation-delay: 0.2s;
+    }
+    
+    #loading {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    #loading.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body class="text-gray-800 antialiased font-sans">
+  <!-- Loading Screen -->
+  <div id="loading" class="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center transition-opacity duration-500">
+    <div class="w-24 h-24 mb-6 relative">
+      <div class="absolute inset-0 rounded-full border-4 border-t-transparent border-indigo-600 animate-spin"></div>
+      <div class="absolute inset-4 rounded-full border-4 border-b-transparent border-purple-600 animate-spin animation-delay-200"></div>
+    </div>
+    <p class="text-lg font-medium text-gray-700">Loading...</p>
+  </div>
+
+  <!-- Header with Hero Section -->
+  <header class="bg-[#4338ca] bg-gradient-to-br from-[#4338ca] to-[#5b21b6] text-white overflow-hidden min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center py-32">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-indigo-300">
+        Media Text Analysis
+      </h1>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8 text-white">Future History: <span class="italic">"Awaken"</span></h2>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 opacity-90">Exploring Indigenous Identity Through Contemporary Media Narratives</p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-8 mt-12">
+        <a href="#intro" class="inline-flex items-center justify-center bg-white text-indigo-900 font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          Begin Journey <i class="fas fa-arrow-down ml-3"></i>
+        </a>
+        <a href="#watch" class="inline-flex items-center justify-center bg-transparent border-2 border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-indigo-900 transition-all duration-300 transform hover:scale-105">
+          <i class="fas fa-play mr-3"></i> Watch Trailer
+        </a>
+      </div>
+    </div>
+    
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden opacity-20">
+      <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-purple-400 mix-blend-multiply filter blur-xl animate-pulse"></div>
+      <div class="absolute top-1/3 right-1/4 w-40 h-40 rounded-full bg-indigo-400 mix-blend-multiply filter blur-xl animate-pulse animation-delay-200"></div>
+      <div class="absolute bottom-1/4 left-1/2 w-48 h-48 rounded-full bg-blue-400 mix-blend-multiply filter blur-xl animate-pulse animation-delay-400"></div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav id="main-nav" class="sticky-nav sticky top-0 z-50 bg-white/90 backdrop-blur-md transition-all duration-300 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center">
+          <span class="text-blue-900 font-bold text-2xl flex items-center">
+            <i class="fas fa-feather-alt mr-2 text-indigo-600"></i> Future History
+          </span>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="#home" class="nav-link text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="#intro" class="nav-link text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">About</a>
+            <a href="#summary" class="nav-link text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">Summary</a>
+            <a href="#key" class="nav-link text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">Key Parts</a>
+            <a href="#analysis" class="nav-link text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">Study</a>
+            <a href="#representation" class="nav-link text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">Impact</a>
+            <a href="#conclusion" class="nav-link text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">Quiz</a>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-900 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition">Home</a>
+        <a href="#intro" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition">About</a>
+        <a href="#summary" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition">Summary</a>
+        <a href="#key" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition">Key Parts</a>
+        <a href="#analysis" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition">Study</a>
+        <a href="#representation" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition">Impact</a>
+        <a href="#conclusion" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-blue-900 hover:bg-gray-50 transition">Quiz</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+    <!-- Home Section -->
+    <section id="home" class="section-card bg-white rounded-2xl shadow-xl overflow-hidden fade-in">
+      <div class="p-10">
+        <h2 class="text-4xl font-bold text-blue-900 mb-6">Learning About Indigenous People</h2>
+        <p class="text-gray-700 mb-6 leading-relaxed text-lg">This website was made for Grade 11 NBE 3U, Media Studies. We are looking at TV shows that show Indigenous people in a good way.</p>
+        <p class="text-gray-700 mb-8 leading-relaxed text-lg">We study the episode <span class="italic font-semibold text-blue-900">"Awaken"</span> from the TV show <span class="italic font-semibold text-purple-800">Future History</span>. This show tells real stories about Indigenous people and their lives. The episode shows how family, culture, and teachings help them know who they are. It teaches us why Indigenous traditions matter and why we should respect them.</p>
+        
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold">
+            <i class="fas fa-film mr-2"></i> TV Show
+          </span>
+          <span class="inline-flex items-center bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold">
+            <i class="fas fa-feather mr-2"></i> Indigenous Stories
+          </span>
+          <span class="inline-flex items-center bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold">
+            <i class="fas fa-heart mr-2"></i> Cultural Identity
+          </span>
+        </div>
+        
+        <div class="mt-8 flex justify-center">
+          <div class="relative w-full max-w-2xl h-64 rounded-xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80" 
+                 alt="Indigenous cultural elements" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+              <h3 class="text-white text-xl font-bold">Exploring Indigenous Identity Through Media</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="intro" class="fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-blue-900 mb-4">About the TV Show</h2>
+        <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+        <p class="text-gray-700 max-w-3xl mx-auto">Learning about the CBC series that helps connect Indigenous elders with young people today.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="section-card bg-white p-8 rounded-2xl shadow-lg">
+          <h3 class="text-2xl font-bold text-blue-900 mb-6">Introduction to <span class="italic">Future History</span></h3>
+          
+          <div class="space-y-5">
+            <p class="text-gray-700 mb-4">Future History is a TV show made by Indigenous people that explores Indigenous culture and history. It connects traditions from the past to life today.</p>
+            
+            <div class="bg-blue-50 p-5 rounded-lg">
+              <h4 class="font-bold text-blue-900 mb-3">About the Show</h4>
+              
+              <ul class="space-y-3">
+                <li class="flex items-center gap-2">
+                  <i class="fas fa-user text-blue-600"></i>
+                  <span><strong>Creator:</strong> Jennifer Podemski (Anishinaabe/Ashkenazi Jewish)</span>
+                </li>
+                
+                <li class="flex items-center gap-2">
+                  <i class="fas fa-pen text-purple-600"></i>
+                  <span><strong>Writer:</strong> Tamara Podemski (Anishinaabe/Ashkenazi Jewish)</span>
+                </li>
+                
+                <li class="flex items-center gap-2">
+                  <i class="fas fa-users text-green-600"></i>
+                  <span><strong>Hosted by:</strong> Kris Nahrgang & Sarain Fox</span>
+                </li>
+                
+                <li class="flex items-center gap-2">
+                  <i class="fas fa-calendar text-yellow-600"></i>
+                  <span><strong>Released:</strong> 2019 (Season 2, Episode 1)</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-400">
+              <p class="text-purple-800">"Future History shows Indigenous people as modern, smart, and looking to the future. It breaks old stereotypes and respects traditional knowledge."</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section-card bg-white p-8 rounded-2xl shadow-lg">
+          <h3 class="text-2xl font-bold text-blue-900 mb-4">About the "Awaken" Episode</h3>
+          
+          <div class="space-y-4">
+            <p class="text-gray-700">This episode is about finding out who you are as an Indigenous person. The hosts talk to different people about:</p>
+            
+            <ul class="space-y-3 text-gray-700 list-disc pl-5">
+              <li>How family helps you understand where you come from</li>
+              <li>How cultural practices (like making medicine bundles) connect you to your traditions</li>
+              <li>How learning from elders helps you find your identity</li>
+              <li>How land and nature play a big part in Indigenous teaching</li>
+            </ul>
+            
+            <p class="text-gray-700 mt-4">The episode shows that being Indigenous isn't just about the past. It's about keeping traditions alive today and passing them to future generations.</p>
+            
+            <div class="mt-6">
+              <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                     alt="Indigenous cultural gathering" 
+                     class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Episode Summary Section -->
+    <section id="summary" class="fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-blue-900 mb-4">What Happens in <span class="italic">"Awaken"</span></h2>
+        <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+        <p class="text-gray-700 max-w-3xl mx-auto">The main parts of the show and what they mean.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+        <!-- Family Roots Card -->
+        <div class="bg-blue-50 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+          <div class="p-6">
+            <div class="flex justify-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full">
+                <i class="fas fa-users text-blue-500 text-xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-center text-blue-800 mb-4">Family Roots</h3>
+            <p class="text-gray-700 mb-4">Kris talks with his uncle and mother to learn about his family history. He learns how past rules and laws affected his family.</p>
+            <div class="bg-white p-4 rounded-lg italic text-blue-700 text-sm mt-4">
+              "Learning where I come from helps me understand who I am today." - Kris
+            </div>
+          </div>
+        </div>
+        
+        <!-- Medicine Bundle Card -->
+        <div class="bg-purple-50 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+          <div class="p-6">
+            <div class="flex justify-center mb-4">
+              <div class="bg-purple-100 p-3 rounded-full">
+                <i class="fas fa-seedling text-purple-500 text-xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-center text-purple-800 mb-4">Medicine Bundle</h3>
+            <p class="text-gray-700 mb-4">Sarain makes a medicine bundle with help from her mother. This shows how spiritual traditions are still important today.</p>
+            <div class="bg-white p-4 rounded-lg italic text-purple-700 text-sm mt-4">
+              "These medicines carry the wisdom of many generations." - Sarain
+            </div>
+          </div>
+        </div>
+        
+        <!-- Land Teachings Card -->
+        <div class="bg-teal-50 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+          <div class="p-6">
+            <div class="flex justify-center mb-4">
+              <div class="bg-teal-100 p-3 rounded-full">
+                <i class="fas fa-mountain text-teal-500 text-xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-center text-teal-800 mb-4">Land Teachings</h3>
+            <p class="text-gray-700 mb-4">Both hosts learn from Dr. Deb about land and spirit. She teaches them that people and nature are connected and must take care of each other.</p>
+            <div class="bg-white p-4 rounded-lg italic text-teal-700 text-sm mt-4">
+              "The land remembers what people forget." - Dr. Deb
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-card bg-white p-8 rounded-2xl shadow-lg mb-10">
+        <h3 class="text-2xl font-bold text-blue-900 mb-4">What the Show is About</h3>
+        <p class="text-gray-700 mb-6">In "Awaken," hosts Kris and Sarain explore what it means to be Indigenous and to belong to a community with deep roots in history. The show begins with both hosts talking about their own journeys of learning about their culture.</p>
+        <p class="text-gray-700 mb-6">During the show, they visit different Indigenous communities. They talk with elders, knowledge keepers, and young people who share stories about how they've kept their cultural identities even though there were many attempts in the past to erase Indigenous cultures through schools and other policies.</p>
+        <p class="text-gray-700 mb-6">The show also looks at how traditional practices like storytelling, art, language, and ceremonies help connect people to their ancestors and give them a sense of belonging. Elders explain how these practices carry wisdom that has been passed down and is still important today.</p>
+        <p class="text-gray-700">By the end of the show, viewers understand that Indigenous identity is always growing and changing, while staying connected to traditional knowledge and community. The message is that connecting to your cultural heritage is a lifelong journey that makes both individuals and communities stronger.</p>
+      </div>
+      
+      <div id="watch" class="video-container mb-6">
+        <iframe src="https://www.youtube.com/embed/Hv25WZ1YZ2k" title="Future History Episode" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center text-gray-500 italic">
+        <a href="https://www.youtube.com/watch?v=Hv25WZ1YZ2k" target="_blank" class="hover:text-blue-800 transition-colors">
+          To watch the full episode, click here
+        </a>
+      </p>
+    </section>
+
+    <!-- Key Scenes Section -->
+    <section id="key" class="fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-blue-900 mb-4">Important Parts of the Show</h2>
+        <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+        <p class="text-gray-700 max-w-3xl mx-auto">The most important scenes in the "Awaken" episode and why they matter.</p>
+      </div>
+      
+      <div class="space-y-12">
+        <div class="timeline-item">
+          <h3 class="text-2xl font-bold text-blue-900 mb-3">1. Personal Stories</h3>
+          <div class="bg-blue-50 p-6 rounded-xl">
+            <p class="text-gray-700 mb-4">At the start, Kris and Sarain share their own stories about being Indigenous. They talk about how they feel connected to their culture and history. This shows that finding your identity is a journey that happens over time.</p>
+            <p class="text-gray-700">The camera shows close-ups of their faces when they share emotional moments. The music uses traditional Indigenous instruments to help viewers connect with the feelings being shared.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <h3 class="text-2xl font-bold text-blue-900 mb-3">2. Learning from Elders</h3>
+          <div class="bg-purple-50 p-6 rounded-xl">
+            <p class="text-gray-700 mb-4">An elder talks to young Indigenous people about their identity and where they come from. The elder explains how knowing your roots helps you face today's challenges with more strength.</p>
+            <p class="text-gray-700">The camera shows everyone sitting together, which helps us see how important community is. The lighting changes from daylight to firelight, showing how these teachings connect the past and present.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <h3 class="text-2xl font-bold text-blue-900 mb-3">3. Community Ceremony</h3>
+          <div class="bg-teal-50 p-6 rounded-xl">
+            <p class="text-gray-700 mb-4">The show includes a traditional ceremony with people of all ages taking part. This scene shows how ceremonies help Indigenous people feel connected to each other and to their ancestors.</p>
+            <p class="text-gray-700">The filmmakers film from a respectful distance to honor the sacred nature of the ceremony. The sounds mix nature and drumming to help viewers feel like they are there.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-blue-900 mb-4">How the Show Tells Stories</h2>
+        <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+        <p class="text-gray-700 max-w-3xl mx-auto">Looking at how the show uses filmmaking techniques to share Indigenous views.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="section-card bg-white p-8 rounded-2xl shadow-lg">
+          <h3 class="text-2xl font-bold text-blue-900 mb-4">Visual Elements</h3>
+          <p class="text-gray-700 mb-4">The show uses camera work that respects Indigenous traditions. The filmmakers often show people with nature in the background, which helps us see how important land is to Indigenous identity.</p>
+          <p class="text-gray-700 mb-4">There are many close-up shots of hands doing traditional crafts. These shots help viewers see how knowledge is passed down from older to younger generations.</p>
+          <p class="text-gray-700">The colors in the show change depending on the scene. Warm colors are used for community gatherings to make them feel happy and welcoming. Cooler colors are used when talking about history to help viewers feel more thoughtful.</p>
+          
+          <div class="mt-6 grid grid-cols-2 gap-4">
+            <div class="aspect-square overflow-hidden rounded-lg">
+              <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                   alt="Indigenous gathering" 
+                   class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="aspect-square overflow-hidden rounded-lg">
+              <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80" 
+                   alt="Cultural artifacts" 
+                   class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+          </div>
+        </div>
+        
+        <div class="section-card bg-white p-8 rounded-2xl shadow-lg">
+          <h3 class="text-2xl font-bold text-blue-900 mb-4">Story Pattern</h3>
+          <p class="text-gray-700 mb-4">Instead of telling stories in a straight line (beginning, middle, end), "Awaken" uses a circular storytelling style that matches Indigenous traditions. The episode starts and ends with similar ideas, showing how knowledge moves in cycles.</p>
+          <p class="text-gray-700 mb-4">The show mixes personal stories with community events. This creates a web of different voices that shows both individual experiences and shared knowledge.</p>
+          <p class="text-gray-700">This way of telling stories is different from most documentaries and helps viewers understand Indigenous ways of sharing information, where stories build on each other rather than following a strict timeline.</p>
+          
+          <div class="mt-6">
+            <div class="relative">
+              <div class="w-full h-64 rounded-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                     alt="Storytelling circle" 
+                     class="w-full h-full object-cover">
+              </div>
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-circle-notch text-4xl mb-2 animate-spin"></i>
+                  <p class="font-bold">Circular Storytelling</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Representation Section -->
+    <section id="representation" class="fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-blue-900 mb-4">Indigenous People on TV</h2>
+        <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+        <p class="text-gray-700 max-w-3xl mx-auto">How "Awaken" shows real Indigenous stories in a good way.</p>
+      </div>
+      
+      <div class="section-card bg-white p-8 rounded-2xl shadow-lg mb-10">
+        <h3 class="text-2xl font-bold text-blue-900 mb-4">Indigenous People Make This Show</h3>
+        <p class="text-gray-700 mb-4">Future History is special because Indigenous people make the show. They choose how to tell their own stories. They worked with Indigenous communities to make sure the show is true and shows respect.</p>
+        <p class="text-gray-700 mb-4">The show doesn't use wrong ideas about Indigenous people that you might see on other TV shows. It shows many different Indigenous lives in Canada. It also shows what many groups share.</p>
+        <p class="text-gray-700">By having Indigenous people both in front of the camera and making the show behind the scenes, "Awaken" lets Indigenous communities tell their own stories instead of having others tell stories about them.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="testimonial-card p-8 bg-blue-50 rounded-xl">
+          <p class="text-gray-700 mb-6 pt-6">"Future History doesn't just tell our stories; it shows how our stories have always been part of this land. It's like seeing myself on TV for the first time."</p>
+          <div class="flex items-center">
+            <div class="mr-4 bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center">
+              <i class="fas fa-user text-purple-800"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-blue-900">Indigenous Viewer</h4>
+              <p class="text-sm text-gray-500">Ontario</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card p-8 bg-purple-50 rounded-xl">
+          <p class="text-gray-700 mb-6 pt-6">"As a teacher, I use this show to teach students about Indigenous ideas that we didn't learn about before."</p>
+          <div class="flex items-center">
+            <div class="mr-4 bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+              <i class="fas fa-chalkboard-teacher text-blue-800"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-blue-900">High School Teacher</h4>
+              <p class="text-sm text-gray-500">Manitoba</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card p-8 bg-teal-50 rounded-xl">
+          <p class="text-gray-700 mb-6 pt-6">"I really like how this show talks about finding who you are. It helps me as I learn about my own family history."</p>
+          <div class="flex items-center">
+            <div class="mr-4 bg-teal-100 w-12 h-12 rounded-full flex items-center justify-center">
+              <i class="fas fa-heart text-teal-800"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-blue-900">Indigenous Youth</h4>
+              <p class="text-sm text-gray-500">British Columbia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-blue-900 mb-4">What We Learned</h2>
+        <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+        <p class="text-gray-700 max-w-3xl mx-auto">The main things we learned from watching "Awaken".</p>
+      </div>
+      
+      <div class="section-card bg-white p-8 rounded-2xl shadow-lg mb-12">
+        <h3 class="text-2xl font-bold text-blue-900 mb-4">Main Points</h3>
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <div class="mr-4 bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-1">
+              <i class="fas fa-check text-blue-800 text-sm"></i>
+            </div>
+            <p class="text-gray-700"><span class="font-semibold">Finding Your Identity:</span> "Awaken" shows that Indigenous identity is a journey of learning and connecting that continues across generations.</p>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-1">
+              <i class="fas fa-check text-blue-800 text-sm"></i>
+            </div>
+            <p class="text-gray-700"><span class="font-semibold">Community Matters:</span> The episode shows how your identity is connected to your community and family, which help you understand who you are.</p>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-1">
+              <i class="fas fa-check text-blue-800 text-sm"></i>
+            </div>
+            <p class="text-gray-700"><span class="font-semibold">Passing Down Knowledge:</span> Traditional practices, stories, and ceremonies are ways to pass important knowledge about values and ways of seeing the world from one generation to the next.</p>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-1">
+              <i class="fas fa-check text-blue-800 text-sm"></i>
+            </div>
+            <p class="text-gray-700"><span class="font-semibold">Better TV Shows:</span> When Indigenous people create their own shows like "Future History," it helps fight stereotypes and gives communities the power to tell their own stories.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Interactive Quiz Section -->
+      <div class="section-card bg-white p-8 rounded-2xl shadow-lg">
+        <h3 class="text-2xl font-bold text-blue-900 mb-6">Quiz: Check What You Learned</h3>
+        <form id="quiz-form" class="space-y-8">
+          <div>
+            <p class="font-semibold text-gray-800 mb-3">1. According to the show, what is most important for Indigenous identity?</p>
+            <div class="space-y-2 ml-4">
+              <div class="flex items-center">
+                <input type="radio" id="q1a" name="q1" value="a" class="mr-3">
+                <label for="q1a" class="text-gray-700">Personal success</label>
+              </div>
+              <div class="flex items-center">
+                <input type="radio" id="q1b" name="q1" value="b" class="mr-3">
+                <label for="q1b" class="text-gray-700">Connection to family and community</label>
+              </div>
+              <div class="flex items-center">
+                <input type="radio" id="q1c" name="q1" value="c" class="mr-3">
+                <label for="q1c" class="text-gray-700">Where you live</label>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <p class="font-semibold text-gray-800 mb-3">2. What makes "Future History" different from other TV shows about Indigenous people?</p>
+            <div class="space-y-2 ml-4">
+              <div class="flex items-center">
+                <input type="radio" id="q2a" name="q2" value="a" class="mr-3">
+                <label for="q2a" class="text-gray-700">It only talks about the past</label>
+              </div>
+              <div class="flex items-center">
+                <input type="radio" id="q2b" name="q2" value="b" class="mr-3">
+                <label for="q2b" class="text-gray-700">It doesn't talk about cultural traditions</label>
+              </div>
+              <div class="flex items-center">
+                <input type="radio" id="q2c" name="q2" value="c" class="mr-3">
+                <label for="q2c" class="text-gray-700">It is made by Indigenous people themselves</label>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <p class="font-semibold text-gray-800 mb-3">3. How does "Awaken" tell its story differently than most TV shows?</p>
+            <div class="space-y-2 ml-4">
+              <div class="flex items-center">
+                <input type="radio" id="q3a" name="q3" value="a" class="mr-3">
+                <label for="q3a" class="text-gray-700">It uses circle-style storytelling that shows connections</label>
+              </div>
+              <div class="flex items-center">
+                <input type="radio" id="q3b" name="q3" value="b" class="mr-3">
+                <label for="q3b" class="text-gray-700">It tells the story from beginning to end in a straight line</label>
+              </div>
+              <div class="flex items-center">
+                <input type="radio" id="q3c" name="q3" value="c" class="mr-3">
+                <label for="q3c" class="text-gray-700">It only shows the past without connecting to today</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pt-4">
+            <button type="submit" class="bg-blue-900 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
+              Check My Answers
+            </button>
+          </div>
+        </form>
+        
+        <div id="quiz-results" class="hidden mt-8 p-6 bg-blue-50 rounded-xl">
+          <!-- Results will be displayed here via JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Final Reflections Section -->
+      <div class="section-card bg-white p-8 rounded-2xl shadow-lg mb-20">
+        <h3 class="text-2xl font-bold text-indigo-900 mb-8 text-center">Final Reflections</h3>
+        
+        <div class="flex justify-center mb-8">
+          <div class="text-indigo-100 text-9xl">"</div>
+        </div>
+        
+        <p class="text-gray-700 mb-6 text-lg text-center max-w-4xl mx-auto">
+          "Awaken" is a strong example of Indigenous storytelling. It shows the importance of listening to Indigenous voices and supporting cultural revival. The episode highlights the need for respect and allyship in reclaiming identity. It teaches us the value of hearing Indigenous stories on their own terms.
+        </p>
+        
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+          <div class="bg-blue-50 p-6 rounded-xl">
+            <div class="flex justify-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full">
+                <i class="fas fa-seedling text-blue-500 text-xl"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-center text-blue-800 mb-4">Cultural Revitalization</h4>
+            <p class="text-gray-700 text-center text-sm">Shows how traditions stay alive by adapting to modern times while keeping important values and knowledge.</p>
+          </div>
+          
+          <div class="bg-purple-50 p-6 rounded-xl">
+            <div class="flex justify-center mb-4">
+              <div class="bg-purple-100 p-3 rounded-full">
+                <i class="fas fa-film text-purple-500 text-xl"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-center text-purple-800 mb-4">Media Representation</h4>
+            <p class="text-gray-700 text-center text-sm">Gives an example of fair Indigenous storytelling in media that focuses on Indigenous voices and views.</p>
+          </div>
+          
+          <div class="bg-teal-50 p-6 rounded-xl">
+            <div class="flex justify-center mb-4">
+              <div class="bg-teal-100 p-3 rounded-full">
+                <i class="fas fa-graduation-cap text-teal-500 text-xl"></i>
+              </div>
+            </div>
+            <h4 class="font-bold text-center text-teal-800 mb-4">Educational Value</h4>
+            <p class="text-gray-700 text-center text-sm">Offers transformative learning about Indigenous worldviews that challenges colonial narratives.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Return to Beginning Button -->
+      <div class="flex justify-center mt-16 mb-8">
+        <a href="#home" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 inline-flex items-center">
+          Return to Beginning <i class="fas fa-arrow-up ml-2"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10">
+        <div>
+          <h4 class="text-xl font-bold mb-6 flex items-center">
+            <i class="fas fa-feather-alt mr-3 text-indigo-400"></i> Future History
+          </h4>
+          <p class="text-gray-300 mb-4">A school project about Indigenous people on TV in Canada.</p>
+          <div class="flex space-x-4 mt-6">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-bold mb-6">Navigation</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="#home" class="text-gray-300 hover:text-white transition-colors">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#intro" class="text-gray-300 hover:text-white transition-colors">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#summary" class="text-gray-300 hover:text-white transition-colors">
+                Summary
+              </a>
+            </li>
+            <li>
+              <a href="#key" class="text-gray-300 hover:text-white transition-colors">
+                Key Parts
+              </a>
+            </li>
+            <li>
+              <a href="#analysis" class="text-gray-300 hover:text-white transition-colors">
+                Study
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-bold mb-6">Links</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="https://www.cbc.ca/futurehistory" target="_blank" class="text-gray-300 hover:text-white transition-colors">
+                Watch Future History
+              </a>
+            </li>
+            <li>
+              <a href="https://www.aptn.ca" target="_blank" class="text-gray-300 hover:text-white transition-colors">
+                APTN TV Network
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                Indigenous Stories
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                Learn More
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                TV Shows
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-bold mb-6">Contact</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="mailto:aalmo6@ocdsb.ca" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                <i class="fas fa-envelope mr-2 text-gray-400"></i> aalmo6@ocdsb.ca
+              </a>
+            </li>
+            <li>
+              <a href="tel:+16137560109" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                <i class="fas fa-phone mr-2 text-gray-400"></i> 828-756-0109
+              </a>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mr-2 text-gray-400 mt-1"></i>
+              <div>
+                <p>Canada</p>
+                <p>Ottawa, ON</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-10 pt-10 text-center">
+        <p class="text-gray-400">© 2025 Indigenous Media Analysis | Educational Project by Ali Almostafa</p>
+        <p class="text-gray-500 text-sm mt-4">Made with respect for Indigenous stories and teachings. Thank you to the Indigenous peoples whose land this project was created on.</p>
+        <div class="flex justify-center space-x-6 mt-6">
+          <a href="#" class="text-gray-500 hover:text-gray-300 transition-colors">Privacy</a>
+          <a href="#" class="text-gray-500 hover:text-gray-300 transition-colors">Terms</a>
+          <a href="#" class="text-gray-500 hover:text-gray-300 transition-colors">Help</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Video Modal -->
+  <div id="video-modal" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden">
+    <div class="relative w-full max-w-4xl px-4">
+      <button id="close-video" class="absolute -top-12 right-4 text-white text-3xl hover:text-gray-300">&times;</button>
+      <div class="video-container">
+        <iframe id="video-frame" src="" title="Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Loading screen
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('loading').classList.add('hidden');
+      }, 1000);
+    });
+    
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Close mobile menu if open
+        document.getElementById('mobile-menu').classList.add('hidden');
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Sticky nav on scroll
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('main-nav');
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+    
+    // Fade in sections as they come into view
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      fadeObserver.observe(el);
+    });
+    
+    // Quiz functionality
+    document.getElementById('quiz-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const answers = {
+        q1: 'b',
+        q2: 'c',
+        q3: 'a'
+      };
+      
+      let score = 0;
+      const formData = new FormData(this);
+      
+      for (const [question, answer] of formData.entries()) {
+        if (answers[question] === answer) {
+          score++;
+        }
+      }
+      
+      const resultsDiv = document.getElementById('quiz-results');
+      resultsDiv.classList.remove('hidden');
+      
+      if (score === 3) {
+        resultsDiv.innerHTML = `
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-check text-green-600 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-green-800 mb-2">Perfect! ${score}/3</h4>
+            <p class="text-gray-700">You really understood the important messages from "Awaken"!</p>
+          </div>
+        `;
+      } else if (score >= 1) {
+        resultsDiv.innerHTML = `
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-thumbs-up text-blue-600 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-blue-800 mb-2">Good job! ${score}/3</h4>
+            <p class="text-gray-700">You got some right! Review the sections to learn more.</p>
+          </div>
+        `;
+      } else {
+        resultsDiv.innerHTML = `
+          <div class="text-center">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-exclamation text-red-600 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-red-800 mb-2">${score}/3 - Let's try again</h4>
+            <p class="text-gray-700">Review the material and try the quiz again to test your knowledge.</p>
+          </div>
+        `;
+      }
+      
+      // Scroll to results
+      resultsDiv.scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Video modal functionality
+    const watchLink = document.querySelector('a[href="#watch"]');
+    const videoModal = document.getElementById('video-modal');
+    const closeVideo = document.getElementById('close-video');
+    const videoFrame = document.getElementById('video-frame');
+    
+    if (watchLink) {
+      watchLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        videoFrame.src = 'https://www.youtube.com/embed/Hv25WZ1YZ2k?autoplay=1';
+        videoModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    
+    closeVideo.addEventListener('click', function() {
+      videoModal.classList.add('hidden');
+      videoFrame.src = '';
+      document.body.style.overflow = '';
+    });
+    
+    // Close modal when clicking outside
+    videoModal.addEventListener('click', function(e) {
+      if (e.target === videoModal) {
+        videoModal.classList.add('hidden');
+        videoFrame.src = '';
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>
